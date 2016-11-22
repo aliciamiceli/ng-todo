@@ -12,6 +12,6 @@ app.controller("NavCtrl", function($scope){
   },
   {
     name:"New Item",
-    url:"#items/new"
+    url:"#/items/new"
   }];
 });

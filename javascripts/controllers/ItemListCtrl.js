@@ -30,4 +30,31 @@ $scope.deleteItem = function(itemID){
     getItems();
   });
 };
+
+$scope.inputChange = function(thingy){
+  ItemFactory.editItem(thingy).then(function(response){
+    console.log("ctrl inputChange response", response);
+  });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
