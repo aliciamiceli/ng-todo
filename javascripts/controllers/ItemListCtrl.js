@@ -1,9 +1,7 @@
-"use strict";
+'use strict';
 
-app.controller("TodoCtrl", function($scope, ItemFactory){
+app.controller("ItemListCtrl", function($scope, ItemFactory){
   $scope.welcome = "hello";
-  $scope.showListView = true;
-  $scope.newTask = {};
   $scope.items = [];
 
 
@@ -25,14 +23,6 @@ getItems();
     $scope.showListView = false;
   };
 
-  $scope.addNewItem = function(){
-    $scope.newTask.isCompleted = false;
-    ItemFactory.postNewItem($scope.newTask).then(function(itemId){
-      getItems();
-      $scope.newTask = {};
-      $scope.showListView = true;
-    });
-  };
 
 $scope.deleteItem = function(itemID){
   console.log("you deleted me", itemID);
@@ -40,4 +30,31 @@ $scope.deleteItem = function(itemID){
     getItems();
   });
 };
+
+$scope.inputChange = function(thingy){
+  ItemFactory.editItem(thingy).then(function(response){
+    console.log("ctrl inputChange response", response);
+  });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
