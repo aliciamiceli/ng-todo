@@ -1,3 +1,5 @@
+'use strict';
+
 app.controller("ItemEditCtrl", function($scope, $location, $routeParams, ItemFactory){
   $scope.newTask = {};
   let itemId = $routeParams.id;
@@ -6,12 +8,12 @@ app.controller("ItemEditCtrl", function($scope, $location, $routeParams, ItemFac
       oneItem.id = itemId;
       $scope.newTask = oneItem;
       console.log("oneItem", oneItem);
-  })
+  });
 
     $scope.addNewItem = function(){
       ItemFactory.editItem($scope.newTask).then(function(response){
         $scope.newTask = {};
         $location.url("/items/list");
-      })
-    }
-})
+      });
+    };
+});
